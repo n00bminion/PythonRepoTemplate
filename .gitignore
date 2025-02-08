@@ -1,0 +1,6 @@
+src/pkg/__pycache__/*
+src/pkg/_version.py
+.env
+.venv
+test*
+src/*.egg-info

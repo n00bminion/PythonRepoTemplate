@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkg-name"
+dynamic = ["dependencies","version"]
+requires-python = "==3.12.3"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools_scm]
+version_file = "src/pkg/_version.py"
