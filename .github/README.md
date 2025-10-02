@@ -16,12 +16,12 @@ py -m venv .venv
 .\.venv\Scripts\activate
 ```
 
-### Install an editable version in the venv (allows for further code changes)
+### Install an editable version
 ```console
 pip install -e .
 ```
-
-### Or install the project as a package (no further code changes)
+or 
+### Install as is
 ```console
 pip install .
 ```
