@@ -1,0 +1,33 @@
+name: Template Workflow
+
+on: 
+  push:
+    
+jobs:
+  run-pre-commit:
+    name: Install and run pre-commit
+    runs-on: windows-latest
+    
+    strategy:
+      matrix:
+        python-version: ["3.12.3", "3.12.4", "3.12.5", "3.12.6", "3.12.7", "3.12.8", "3.12.9"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Update Github URL
+        run: git config --global url.https://${{ secrets.PAT_TOKEN }}@github.com/.insteadOf https://github.com/
+
+      - name: Installing current package and dependencies
+        run: |
+          pip install -e .
+      
+      - name: Run pre commit on all files
+        run: |
+          pre-commit run --all-files
