@@ -16,3 +16,5 @@ repos:
     - id: requirements-txt-fixer
     - id: pretty-format-json
       args: [--autofix]
+    - id: check-illegal-windows-names
+    
