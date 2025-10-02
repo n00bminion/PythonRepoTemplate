@@ -208,3 +208,6 @@ __marimo__/
 
 # Python Version
 *_version.py
+
+test.*
+*.db
